@@ -16,7 +16,6 @@ INTERNAL_IPS = [
 
 #endregion DEPLOYMENT SETTINGS
 
-
 INSTALLED_APPS = [
     'jazzmin',
     'django.contrib.admin',
@@ -64,17 +63,12 @@ WSGI_APPLICATION = 'base.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'blog',
-        'USER': 'blog',
-        'PASSWORD': 'xxxxxx',   
+        'NAME': 'forscrap',
+        'USER': 'forscrap',
+        'PASSWORD': 'forscrap',   
     }
 }
-
-
-# Password validation
-# https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -92,24 +86,23 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
-# Internationalization
-# https://docs.djangoproject.com/en/4.2/topics/i18n/
-
+#region LANGUAGE AND TIME
 LANGUAGE_CODE = 'en-us'
-
-TIME_ZONE = 'UTC'
-
+TIME_ZONE = 'Europe/Berlin'
 USE_I18N = True
-
 USE_TZ = True
+#endregion LANGUAGE AND TIME
 
-
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/4.2/howto/static-files/
-
+#region STATIC FILES, MEDIA ETC.
 STATIC_URL = 'static/'
+#endregion STATIC FILES, MEDIA ETC.
 
-# Default primary key field type
-# https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
+#region LOGIN GLOBAL SETTINGS
+
+LOGIN_URL = 'login'
+# LOGIN_REDIRECT_URL = '#'
+# LOGOUT_REDIRECT_URL = '#'
+#endregion LOGIN GLOBAL SETTINGS
+
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
