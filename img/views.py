@@ -1,8 +1,32 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User, auth
 from django.contrib import messages
+import requests
+from bs4 import BeautifulSoup as bs
+from .models import Github 
 
 def index(request):
+
+    if request.method == 'POST':
+        github_user = request.POST['github_user']
+        user = request.POST['user']
+        url = 'https://github.com/'+github_user
+        r = requests.get(url)
+        soup = bs(r.content)
+        profile = soup.find('img', {'alt': 'Avatar'})['src']
+        
+        new_github = Github(
+            githubuser = github_user,
+            imagelink = profile,
+            username = user
+        )
+
+        new_github.save()
+
+
+
+
+
     context = {}
     return render(request, 'index.html', context)
 
