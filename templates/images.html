@@ -114,7 +114,7 @@ body {
 
 <!-- The four columns -->
 <div class="row">
-  {% for image in git_hub reversed %}
+  {% for image in gh reversed %}
   <div class="column">
     <img src="{{image.imagelink}}" alt="Nature" style="width:100%" onclick="myFunction(this);">
     <p>{{image.githubuser}}</p>

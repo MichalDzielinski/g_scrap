@@ -6,7 +6,6 @@ from bs4 import BeautifulSoup as bs
 from .models import Github 
 
 def index(request):
-
     if request.method == 'POST':
         github_user = request.POST['github_user']
         user = request.POST['user']
@@ -24,10 +23,6 @@ def index(request):
         new_github.save()
         messages.info(request, 'User Image Saved')
         return redirect('/')
-
-
-
-
 
     context = {}
     return render(request, 'index.html', context)
@@ -79,8 +74,13 @@ def logout(request):
     auth.logout(request)
     return redirect('login')
 
-
-
+def images(request):
+    gh = Github.objects.filter(username=request.user.username)
+    
+    
+    
+    context = {'gh':gh}
+    return render(request, 'images.html', context)
 
 
 
