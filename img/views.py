@@ -49,7 +49,9 @@ def login(request):
         context = {}
         return render(request, 'login.html', context)
 
-
+def logout(request):
+    auth.logout(request)
+    return redirect('login')
 
 
 
