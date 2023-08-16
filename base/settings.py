@@ -94,6 +94,8 @@ USE_TZ = True
 
 #region STATIC FILES, MEDIA ETC.
 STATIC_URL = 'static/'
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+STATICFILES_DIRS = BASE_DIR, 'static'
 #endregion STATIC FILES, MEDIA ETC.
 
 #region LOGIN GLOBAL SETTINGS
