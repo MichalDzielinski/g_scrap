@@ -22,6 +22,8 @@ def index(request):
         )
 
         new_github.save()
+        messages.info(request, 'User Image Saved')
+        return redirect('/')
 
 
 
